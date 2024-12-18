@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button, FlatList } from 'react-native';
 import { useState } from 'react';
+import Card from './src/components/Card';
 
 export default function App() {
   const [text,setText] = useState("")
@@ -16,10 +17,10 @@ export default function App() {
   }
 
   const renderListItem = ({item}) => (
-    <View style={styles.taskContainer}>
+    <Card style={styles.taskContainer}>
       <Text style={styles.taskItem}>{item.value}</Text>
       <Button title="x" color="#d64933" onPress={()=>onHandleDeleteItem(item.id)} />
-    </View>
+    </Card>
     
   )
 
@@ -80,6 +81,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     alignItems: 'center',
-    marginVertical: 8
+    marginVertical: 8,
+    padding:8,
   }
 });
